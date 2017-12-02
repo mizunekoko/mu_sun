@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\Main\Compass.cs" />
      <Compile Include="Assets\Scripts\Main\Gyro.cs" />
      <Compile Include="Assets\Scripts\Manager.cs" />
+     <Compile Include="Assets\Scripts\Rank\RankSystem.cs" />
      <Compile Include="Assets\Scripts\Result\ResultSystem.cs" />
      <Compile Include="Assets\Scripts\Result\sendResult.cs" />
      <Compile Include="Assets\Scripts\Title\TitleSystem.cs" />
