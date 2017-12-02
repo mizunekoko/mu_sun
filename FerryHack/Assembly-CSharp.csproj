@@ -46,8 +46,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Main\Acceleration.cs" />
      <Compile Include="Assets\Scripts\Main\Compass.cs" />
      <Compile Include="Assets\Scripts\Main\Gyro.cs" />
+     <Compile Include="Assets\Scripts\Main\Player.cs" />
+     <Compile Include="Assets\Scripts\Main\Sun.cs" />
      <Compile Include="Assets\Scripts\Manager.cs" />
      <Compile Include="Assets\Scripts\Title\TitleSystem.cs" />
  <Reference Include="UnityEngine.UI">

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Compass : MonoBehaviour {
 
 	// Use this for initialization
-	void Start () {
+	public void Start () {
 		Input.compass.enabled = true;  //コンパスを起動する。
 		Input.location.Start ();
 	}

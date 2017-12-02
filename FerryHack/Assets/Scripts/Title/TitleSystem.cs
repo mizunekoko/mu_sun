@@ -9,8 +9,8 @@ public class TitleSystem : MonoBehaviour {
 	private float _time;
 	private GameObject _startButton;
 
-	const int SECOND = 1;       //1分
-	const float ERROR = 0.05f;  //誤差(許容範囲)
+	private const int SECOND = 1;       //1分
+	private const float ERROR = 0.1f;  //誤差(許容範囲)
 
 	void Start(){
 		_startButton = GameObject.Find ("Canvas/Button/Text");
@@ -37,6 +37,7 @@ public class TitleSystem : MonoBehaviour {
 
 		} else {  //水平にしてくださいという文字をだす
 			_startButton.GetComponent<Text>().text = "水平に持ってください";
+			_startButton.GetComponent<Text> ().fontSize = 40;
 
 		}
 	}

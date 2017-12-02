@@ -4,10 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Gyro : MonoBehaviour {
-	private Vector2 _vec;
-	public GameObject _x;
-	public GameObject _y;
-	private float _time;
+	public Vector2 _vec;
+	public float _time;
 
 	const int SECOND = 1;
 
@@ -24,11 +22,6 @@ public class Gyro : MonoBehaviour {
 			_vec.x = Input.acceleration.x;
 			_vec.y = Input.acceleration.y;
 			_time = 0;
-		}
-
-		if(_vec != null){
-			_x.GetComponent<Text> ().text = _vec.x.ToString();
-			_y.GetComponent<Text> ().text = _vec.y.ToString();
 		}
 
 	}
