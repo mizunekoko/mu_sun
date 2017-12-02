@@ -33,6 +33,7 @@ public class TitleSystem : MonoBehaviour {
 			SceneManager.LoadScene("Main");
 
 			//ゲーム開始時の水平ベクトルを取得する。
+			Manager.GetInstans().GyroVector = _vec;
 
 		} else {  //水平にしてくださいという文字をだす
 			_startButton.GetComponent<Text>().text = "水平に持ってください";
