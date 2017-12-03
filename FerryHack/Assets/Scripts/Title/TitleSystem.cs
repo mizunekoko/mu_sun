@@ -36,7 +36,7 @@ public class TitleSystem : MonoBehaviour {
 			Manager.GetInstans().GyroVector = _vec;
 
 		} else {  //水平にしてくださいという文字をだす
-			_startButton.GetComponent<Text>().text = "水平に持ってください";
+			_startButton.GetComponent<Text>().text = "すいへいにもってください";
 			_startButton.GetComponent<Text> ().fontSize = 40;
 
 		}

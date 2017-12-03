@@ -14,6 +14,9 @@ public class Acceleration : MonoBehaviour {
 	private float _pa_sent;
 	private float _goukei;
 	private float _mas;
+	private float _time;
+
+	private int _score;
 
 	// Use this for initialization
 	void Start () {
@@ -21,6 +24,8 @@ public class Acceleration : MonoBehaviour {
 		_vec = Vector2.zero;
 		_first_pos = this.transform.position;
 		_child =  transform.Find ("Goal").gameObject;
+		_score = 1000;
+		_time = 0;
 
 	}
 	
@@ -30,8 +35,20 @@ public class Acceleration : MonoBehaviour {
 		var dir = Vector3.zero;
 		dir.x = Input.acceleration.y;
 
+		_time += Time.deltaTime * 1;
+
 		if(dir.sqrMagnitude > 1){
 			dir.Normalize();
+		}
+
+		if(_time >= 1){
+			if(_score >= 0){
+				_score -= 1;
+				Manager.GetInstans ().ResultScoar = _score.ToString();
+				Manager.GetInstans ().ResultValue = "maei";
+				Manager.GetInstans ().ResultImage = true;
+			}
+			_time = 0;
 		}
 
 		dir *= Time.deltaTime;
