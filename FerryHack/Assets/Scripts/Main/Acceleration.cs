@@ -17,7 +17,7 @@ public class Acceleration : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		_speed = 5.0f;
+		_speed = 0.5f;
 		_vec = Vector2.zero;
 		_first_pos = this.transform.position;
 		_child =  transform.Find ("Goal").gameObject;
@@ -42,6 +42,7 @@ public class Acceleration : MonoBehaviour {
 		var susumi = Mathf.Abs(this.transform.position.x-_first_pos.x);
 
 		var sintyoku = susumi / _mas;
+
 
 		//if (sintyoku % 10 == 0) {
 		_text.GetComponent<Text> ().text = Mathf.Floor(sintyoku).ToString ();
