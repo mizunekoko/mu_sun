@@ -2,19 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 [System.Serializable]
-public class markjson{
+public class usersjson{
+	public userjson[] users;
+}
+
+[System.Serializable]
+public class userjson{
 	public string rank;
-	public string user_id;
-	public string scoar;
+	public string name;
+	public string score;
 }
 
 public class RankSystem : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		StartCoroutine(GetRank());
 	}
 	
 	// Update is called once per frame
@@ -22,8 +28,8 @@ public class RankSystem : MonoBehaviour {
 		
 	}
 
-	IEnumerator Get1(){
-		WWW request = new WWW("http://localhost:8888/package3.json");
+	IEnumerator GetRank(){
+		WWW request = new WWW("http://172.16.80.7:8080/users/rank/3");
 		yield return request;
 
 		if(!string.IsNullOrEmpty(request.error)){
@@ -34,11 +40,14 @@ public class RankSystem : MonoBehaviour {
 				byte[] results = request.bytes;
 				Debug.Log(text);
 
-				markjson mj = JsonUtility.FromJson<markjson>(text);
+				usersjson usj = JsonUtility.FromJson<usersjson>(text);
 
-				Debug.Log(string.Format("{0}:{1}",mj.point_id,mj.user_id));
-				GameObject.Find ("ookan/val").GetComponent<Text>().text = Manager.GetInstans().ResultValue;
-				GameObject.Find ("ookan/scoar").GetComponent<Text>().text = Manager.GetInstans().ResultScoar;
+				GameObject.Find ("sun_1st/name").GetComponent<Text>().text = usj.users[0].name;
+				GameObject.Find ("sun_1st/scoar").GetComponent<Text>().text = usj.users[0].score;
+				GameObject.Find ("2th/name").GetComponent<Text>().text = usj.users[1].name;
+				GameObject.Find ("2th/scoar").GetComponent<Text>().text = usj.users[1].score;
+				GameObject.Find ("3nd/name").GetComponent<Text>().text = usj.users[2].name;
+				GameObject.Find ("3nd/scoar").GetComponent<Text>().text = usj.users[2].score;
 			}
 		}
 	}
